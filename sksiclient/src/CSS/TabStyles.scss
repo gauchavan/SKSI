@@ -1,0 +1,127 @@
+$c-one: #eba8b0;
+$c-two: #73bfff;
+$c-three: #8dd6cd;
+
+h1{
+  color: #114366;
+  font-size:28px;
+  font-weight:300;
+  font-family:sans-serif;
+  margin-bottom:60px;
+}
+
+.app{
+  // height:calc(40vh + 48px);
+  // box-shadow:0 5px 8px -4px rgba(0,0,0,0.4);
+  
+  @media (max-width: 599px){
+    width:90%;
+  }
+  
+  .nav{
+    justify-content:space-between;
+    counter-reset: counter;
+    color: white;
+    
+    a{
+      padding:20px 20px 20px 0px;
+      width:calc(100%/3);
+      text-align:right;
+      font-family:sans-serif;
+      font-weight:bold;
+      transition:all .3s ease-out;
+      cursor:pointer;
+      overflow:hidden;
+      width: 100%;
+      color: #5b6a75;
+      
+      // &:after{
+      //   position:absolute;
+      //   bottom:-100%;
+      //   left:50%;
+      //   display:block;
+      //   content:"";
+      //   width:0;
+      //   height:0;
+      //   border:10px solid transparent;
+      //   transform:translateX(-50%);
+      //   border-bottom-color:$c-one;
+      //   transition:all .4s ease-out;
+      // }
+      
+      &.active{
+        // padding:15px 15px 15px 15px;
+        background-color: white;
+        color: #4e67eb;
+        &:after{
+         bottom:0;
+        }
+      }
+      
+      &:hover{
+        // color:$c-one;
+        // background: rgba($c-one, 0.4);
+        // background-color: rgba(255, 255, 255, 0.5);
+        // color: #fff;
+        text-decoration: none;
+      }
+      // &:nth-child(2){
+      //   &:hover{
+      //     color:$c-two;
+      //     background:rgba($c-two, 0.4);
+      //   }
+      //   &:after{
+      //     border-bottom-color:$c-two;
+      //   }
+      // }
+      // &:nth-child(3){
+      //   &:hover{
+      //     color:$c-three;
+      //     background:rgba($c-three, 0.4);
+      //   }
+      //   &:after{
+      //     border-bottom-color:$c-three;
+      //   }
+      // }
+      
+    }
+  }
+  
+  .item{
+    display:flex;
+    width:100%;
+    // justify-content:center;
+    // align-items:center;
+    // height:40vh;
+    background-color: #f9f9f9;
+    line-height: 1.5;
+    font-family: 'Fira_Sans_Regular';
+    color: #5b6a75
+    
+    h2{
+      color:#114366;
+    }
+
+    li{
+      color:#5b6a75
+    }
+    
+    // &.fade{
+    //   &-enter{
+    //     opacity:0.1;
+    //   }
+    //   &-enter-active{
+    //     opacity:1;
+    //     transition:all .3s;
+    //   }
+    //   &-leave{
+    //     opacity:1;
+    //   }
+    //   &-leave-active{
+    //     opacity:0.1;
+    //     transition:all .3s;
+    //   }
+    // }
+  }
+}
+
