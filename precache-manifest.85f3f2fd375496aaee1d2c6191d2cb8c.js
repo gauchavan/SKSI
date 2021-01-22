@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0781e4ecd0520410bac1ecd1b2787587",
+    "revision": "e070398e2ff9f34bc36516bd8a026784",
     "url": "/SKSI/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SKSI/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "47356e0d98772df82854",
+    "revision": "3144ea11d6b6b0cbc398",
     "url": "/SKSI/static/css/main.b59526e9.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SKSI/static/js/2.cc561d13.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "47356e0d98772df82854",
-    "url": "/SKSI/static/js/main.32371453.chunk.js"
+    "revision": "3144ea11d6b6b0cbc398",
+    "url": "/SKSI/static/js/main.64aaac0b.chunk.js"
   },
   {
     "revision": "5e8fd8f2304c0412b2b9",
