@@ -1,7 +1,6 @@
 
 import React, {Component} from 'react';
 import {ContainerRow, ContainerColumn, SectionHeading} from "../Styled/CommonStyles";
-import { withRouter } from "react-router";
 import './../CSS/TabStyles.scss';
 import './../CSS/CommonStyles.css';
 import * as COLOR from './../Constants/COLOR';
@@ -74,7 +73,6 @@ class Tabs extends Component {
   }
   componentDidMount(){
     const id = this.props.id || 0;
-    console.log(id, 'tab id')
     this.setState({selected: Number(id)});
     // setTimeout(()=>{
     //   let link = document.querySelectorAll('.select')[1];

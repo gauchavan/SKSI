@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import {SubTitle, ContainerRow, SectionHeading} from './../Styled/CommonStyles';
 import FontIcon from './../FontIcon/FontIcon';
 import * as COLOR from './../Constants/COLOR';
-import './../Header/Header.css';
 
 
 class Contact extends Component{
     render(){
         return(
-            <ContainerRow id='contact' className='mobileColumn'>
+            <ContainerRow className='mobileColumn'>
                 <ContainerRow className='width100Percent outerContainerMargin mobileColumn margin0 justifyContentCenter alignItemCenter padding20'>
                     <ContainerRow className='widthAdjustment justifyContentCenter alignItemCenter padding10All mobileColumn'>
                         <SectionHeading color={COLOR.HEADING}>

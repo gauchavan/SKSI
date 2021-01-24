@@ -3,9 +3,6 @@ import {FontIconSpan} from './../Styled/CommonStyles';
 import './../CSS/CommonStyles.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-
-
-console.log(FontAwesomeIcon);
 class FontIcon extends Component{
     render(){
         const fontName = this.props.name;

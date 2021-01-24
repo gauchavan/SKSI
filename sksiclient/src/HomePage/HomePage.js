@@ -5,7 +5,7 @@ import Footer from './../Footer/Footer';
 import Header from './../Header/Header'
 import Contact from './../Contact/Contact';
 import ServiceSection from './../ServiceSection/ServiceSection';
-import Testimonial from './../Testimonial/Testimonial';
+// import Testimonial from './../Testimonial/Testimonial';
 import Tabs from './../Tabs/Tabs';
 import {ContainerColumn} from './../Styled/CommonStyles';
 import './../CSS/CommonStyles.css';
@@ -13,7 +13,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
     useLocation,
     useParams
   } from "react-router-dom";
@@ -66,14 +65,13 @@ function AboutUsPage() {
     )
 }
 
-function useQuery() {
-    return new URLSearchParams(useLocation().search);
-}
+// function useQuery() {
+//     return new URLSearchParams(useLocation().search);
+// }
 
 function ServicesPage() {
     let { id } = useParams();
-    console.log(id, 'id');
-    let query = useQuery();
+    // let query = useQuery();
     return (
         <ContainerColumn>
             <Header />

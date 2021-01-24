@@ -11,7 +11,7 @@ class CommonBanner extends Component {
                 <FlexColumn className='width60Percent'>
                     <div>
                         <Title className='marginZero' color={COLOR.WHITE}>{this.props.heading}</Title>
-                        <SubTitle className='marginZero' color={COLOR.WHITE}>{
+                        <SubTitle className='marginZero' color={COLOR.WHITE} align={'left'}>{
                             this.props.subHeading ? this.props.subHeading : 'Someone has correctly said “ You are what you do, not what you say you will do”, <br/> we at SKSI believe in this quote and walk the way towards quality service with personal attention to each client.'
                         }</SubTitle>
                     </div>

@@ -9,12 +9,6 @@ const Footer = () => {
     return (
         <FooterDiv style={{backgroundColor: '#f9f9f9'}}>
             <LinkDiv>
-                {/* <Span padding='0px 10px'>
-                    <Links href='' color={COLOR.GRAY} underline='none'>
-                        <FontIcon padding='0px 10px' font='20px' align='center' color={COLOR.BLUE} name='fab fa-twitter'/>
-                        Twitter
-                    </Links>
-                </Span> */}
                 <Span padding='0px 10px'>
                     <Links href='https://www.linkedin.com/company/sksi-associates-llp/' color={COLOR.GRAY} underline='none'>
                         <FontIcon padding='0px 10px' font='20px' align='center' color={COLOR.DARK_BLUE} name={['fab', 'linkedin-in']}/>

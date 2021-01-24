@@ -40,7 +40,7 @@ export const SubTitle= styled.p`
     font-size: ${props => props.font ? props.font : '21px'};
     margin: 15px;
     color: ${props => props.color};
-    text-align: justify
+    text-align: ${props => props.align ? props.align : 'justify'};
 `
 export const Paragraph= styled.p`
     font-family: 'Fira_Sans_Regular';

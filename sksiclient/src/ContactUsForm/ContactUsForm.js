@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {ContactDiv, SubTitle, Paragraph, ContactContainer} from "./../Styled/ContactStyles";
 import {Button} from './../Styled/CommonStyles';
-import './../Header/Header.css';
 
 const inputTextStyle = {
   padding: '10px',
@@ -9,15 +7,6 @@ const inputTextStyle = {
   backgroundColor: '#f4f7f6',
   border: '1px solid #f9f9f9'
 
-};
-const labelStyle = {
-   display: 'flex',
-   flexDirection: 'column',
-   width: '100%',
-   fontSize:'16px',
-   color: '#f78888',
-   fontFamily: 'Fira_Sans_SemiBold',
-   marginBottom:'5px'
 };
 const formDiv = {
     display: 'flex',

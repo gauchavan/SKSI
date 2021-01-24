@@ -165,7 +165,7 @@
 }
 
 .headerBorder {
-    border-bottom: 2px solid #5b6a75 ;
+    border-bottom: 2px solid #4e67eb ;
 }
 
 .margin2035 {
@@ -189,9 +189,14 @@
     padding: 1em 0px !important
 }
 
+.serviceLink {
+    text-decoration: none;
+    color: #5b6a75
+}
+
 .serviceLink:hover {
     text-decoration: none;
-    color: #404144
+    color: #5b6a75
 }
 .logoStyle {
     width: 100px

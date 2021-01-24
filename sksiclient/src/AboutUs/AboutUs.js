@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SectionHeading, Paragraph, ContainerRow, ContainerColumn, SubTitle} from './../Styled/CommonStyles';
+import {SectionHeading, Paragraph, ContainerRow, ContainerColumn} from './../Styled/CommonStyles';
 import Services from './../Services/Services';
 import Service from './../Service/Service';
 import './../CSS/CommonStyles.css';

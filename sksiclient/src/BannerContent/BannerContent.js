@@ -10,9 +10,9 @@ class BannerContent extends Component {
             <ContainerRow className='outerContainerMargin padding10Horizontal alignItemCenter mobileColumn'>
                 <FlexColumn className='width60Percent'>
                     <div>
-                        <SubTitle className='marginZero' color={COLOR.WHITE}>Warm Welcome to</SubTitle>
+                        <SubTitle className='marginZero' color={COLOR.WHITE} align={'left'}>Warm Welcome to</SubTitle>
                         <Title className='marginZero' color={COLOR.WHITE}>SKSI & Associates</Title>
-                        <SubTitle className='marginZero' color={COLOR.WHITE}>Someone has correctly said “You are what you do, not what you say you will do” <span class="padding10Vertical inlineBlock">We at SKSI believe in this quote and walk the way towards quality service with personal attention to each client.</span></SubTitle>
+                        <SubTitle className='marginZero' color={COLOR.WHITE} align={'left'}>Someone has correctly said “You are what you do, not what you say you will do” <span className="padding10Vertical inlineBlock">We at SKSI believe in this quote and walk the way towards quality service with personal attention to each client.</span></SubTitle>
                     </div>
                 </FlexColumn>
                 <ContactForm className='width40Percent' />
