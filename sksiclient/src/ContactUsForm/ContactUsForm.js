@@ -27,7 +27,7 @@ class ContactUsForm extends Component{
     handleSubmit(e) {
         e.preventDefault();
     
-        fetch('http://localhost:3002/send',{
+        fetch('https://sksi-website.herokuapp.com/send',{
             method: "POST",
             body: JSON.stringify(this.state),
             headers: {
