@@ -161,7 +161,7 @@
 
 .headerLink:hover {
     text-decoration-line: none;
-    color: #4e67eb
+    color: #4e67eb !important;
 }
 
 .headerBorder {
@@ -269,7 +269,7 @@
     }
 
     .headerPadding{
-        padding: 0px 10px !important;
+        padding: 5px 10px !important;
     }
 
     .headerContentPadding {
