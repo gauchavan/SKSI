@@ -20,30 +20,35 @@ class ContactUsForm extends Component{
           name: '',
           email: '',
           message: '',
-          number: ''
+          number: '',
+          loading: false
         }
     }
 
     handleSubmit(e) {
         e.preventDefault();
-    
-        fetch('/send',{
-            method: "POST",
-            body: JSON.stringify(this.state),
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-          }).then(
-            (response) => (response.json())
-           ).then((response)=>{
-          if (response.status === 'success'){
-            alert("Message Sent."); 
-            this.resetForm()
-          }else if(response.status === 'fail'){
-            alert("Message failed to send.")
-          }
-        })
+        this.setState({ loading: true }, () => {
+            fetch('/send',{
+                method: "POST",
+                body: JSON.stringify(this.state),
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+            }).then(
+                (response) => (response.json())
+            ).then((response)=>{
+                this.setState({
+                    loading: false
+                });
+                if (response.status === 'success'){
+                    alert("We will contact you soon, Thank you"); 
+                    this.resetForm()
+                }else if(response.status === 'fail'){
+                    alert("Message failed to send")
+                }
+            })
+        });
     }
 
     onNameChange(event) {
@@ -74,7 +79,7 @@ class ContactUsForm extends Component{
                     <input style={inputTextStyle} type='text' placeholder='Number' value={this.state.number} onChange={this.onNumberChange.bind(this)}/>
                     <input style={inputTextStyle} type='email' aria-describedby="emailHelp" placeholder='Email Address' value={this.state.email} onChange={this.onEmailChange.bind(this)}/>
                     <textarea style={inputTextStyle} type='text' placeholder='Message' value={this.state.message} onChange={this.onMessageChange.bind(this)}/>
-                    <Button type='sumbit' onClick={this.sendEmail}>CONTACT US</Button>
+                    <Button type='sumbit' onClick={this.sendEmail}>{this.state.loading ? 'Loading..' : 'CONTACT US'}</Button>
                 </div>
             </form>    
         );

@@ -14,7 +14,7 @@ class AboutUs extends Component{
                     <ContainerColumn className='width100Percent alignItemStart marginAbout'>
                         <SectionHeading underline='underline' color={COLOR.HEADING} className='marginBottom20'>Vision</SectionHeading>
                         <Paragraph color={COLOR.GRAY} margin='0px 0px 20px' style={{lineHeight: '1.8'}}>
-                            To become the leading consultancy service firm with legacy to carrt forward withe the passion which it was formed, by the professionals that shall take it forward and be one of the socially responsible firms working towards the overall growth.
+                            To become the leading consultancy service firm with legacy to carry forward with the passion which it was formed, by the professionals that shall take it forward and be one of the socially responsible firms working towards the overall growth.
                         </Paragraph>
                         <SectionHeading underline='underline' color={COLOR.HEADING} className='marginBottom20'>Mission</SectionHeading>
                         <Paragraph color={COLOR.GRAY} margin='0px 0px 30px'  style={{lineHeight: '1.8'}}>

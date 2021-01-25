@@ -36,7 +36,7 @@ export const GrayContainer = styled.div`
     margin:10px
 `
 export const SubTitle= styled.p`
-    font-family: 'Fira_Sans_Regular';
+    font-family: ${props => props.family ? props.family : 'Fira_Sans_Regular'};
     font-size: ${props => props.font ? props.font : '21px'};
     margin: 15px;
     color: ${props => props.color};
