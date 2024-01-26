@@ -26,3 +26,7 @@ yarn-error.log*
 
 # cutom configs
 config
+node_modules
+node_modules
+node_modules
+node_modules
