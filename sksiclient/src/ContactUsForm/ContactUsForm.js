@@ -21,54 +21,77 @@ class ContactUsForm extends Component{
           email: '',
           message: '',
           number: '',
-          loading: false
+          loading: false,
+          errors: {}
         }
     }
 
+    validateForm() {
+        const errors = {};
+    
+        if (!this.state.name) {
+          errors.name = 'Name is required';
+        }
+        if (!this.state.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) {
+          errors.email = 'Invalid email address';
+        }
+        if (!this.state.message) {
+          errors.message = 'Message is required';
+        }
+        if (!this.state.number) {
+            errors.number = 'Number is required';
+        }
+    
+        return errors;
+      }
+
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({ loading: true }, () => {
-            fetch('/send',{
-                method: "POST",
-                body: JSON.stringify(this.state),
-                headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-                },
-            }).then(
-                (response) => (response.json())
-            ).then((response)=>{
-                this.setState({
-                    loading: false
-                });
-                if (response.status === 'success'){
-                    alert("We will contact you soon, Thank you"); 
-                    this.resetForm()
-                }else if(response.status === 'fail'){
-                    alert("Message failed to send")
-                }
-            })
-        });
+        const errors = this.validateForm();
+        if (Object.keys(errors).length === 0) {
+            this.setState({ loading: true }, () => {
+                fetch('/send',{
+                    method: "POST",
+                    body: JSON.stringify(this.state),
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                }).then(
+                    (response) => (response.json())
+                ).then((response)=>{
+                    this.setState({
+                        loading: false
+                    });
+                    if (response.status === 'success'){
+                        alert("We will contact you soon, Thank you"); 
+                        this.resetForm()
+                    }else if(response.status === 'fail'){
+                        alert("Message failed to send")
+                    }
+                })
+            });
+        }
     }
 
     onNameChange(event) {
-        event.target.value ? this.setState({name: event.target.value}) : null;
+        this.setState({name: event.target.value});
     }
 
     onNumberChange(event) {
-        event.target.value ? this.setState({number: event.target.value}) : null;
+        this.setState({number: event.target.value});
     }
     
     onEmailChange(event) {
-        event.target.value ? this.setState({email: event.target.value}) : null;
+        this.setState({email: event.target.value});
     }
 
     onMessageChange(event) {
-        event.target.value ? this.setState({message: event.target.value}): null
+        this.setState({message: event.target.value});
     }
 
     resetForm(){
-        this.setState({name: '', email: '', message: '', number: ''})
+        this.setState({name: '', email: '', message: '', number: '', loading: false, error: {}})
     }
 
     render(){
@@ -76,9 +99,13 @@ class ContactUsForm extends Component{
             <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
                 <div style={formDiv}>
                     <input style={inputTextStyle} type='text' placeholder='Name' value={this.state.name} onChange={this.onNameChange.bind(this)}/>
+                    {this.state.errors.name && <p style={{ color: 'red' }}>{this.state.errors.name}</p>}
                     <input style={inputTextStyle} type='text' placeholder='Number' value={this.state.number} onChange={this.onNumberChange.bind(this)}/>
+                    {this.state.errors.number && <p style={{ color: 'red' }}>{this.state.errors.number}</p>}
                     <input style={inputTextStyle} type='email' aria-describedby="emailHelp" placeholder='Email Address' value={this.state.email} onChange={this.onEmailChange.bind(this)}/>
+                    {this.state.errors.email && <p style={{ color: 'red' }}>{this.state.errors.email}</p>}
                     <textarea style={inputTextStyle} type='text' placeholder='Message' value={this.state.message} onChange={this.onMessageChange.bind(this)}/>
+                    {this.state.errors.message && <p style={{ color: 'red' }}>{this.state.errors.message}</p>}
                     <Button type='sumbit' onClick={this.sendEmail}>{this.state.loading ? 'Loading..' : 'CONTACT US'}</Button>
                 </div>
             </form>    
