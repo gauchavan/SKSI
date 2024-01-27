@@ -52,19 +52,19 @@ class ContactUsForm extends Component{
     }
 
     onNameChange(event) {
-        this.setState({name: event.target.value})
+        event.target.value ? this.setState({name: event.target.value}) : null;
     }
 
     onNumberChange(event) {
-        this.setState({number: event.target.value})
+        event.target.value ? this.setState({number: event.target.value}) : null;
     }
     
     onEmailChange(event) {
-        this.setState({email: event.target.value})
+        event.target.value ? this.setState({email: event.target.value}) : null;
     }
 
     onMessageChange(event) {
-        this.setState({message: event.target.value})
+        event.target.value ? this.setState({message: event.target.value}): null
     }
 
     resetForm(){

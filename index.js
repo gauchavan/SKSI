@@ -6,11 +6,11 @@ const app = express()
 var router = express.Router();
 
 var cors = require('cors');
-const creds = require('./config/config.js');
-// const creds = { "USER" : process.env.emailUser, "PASS" : process.env.emailPwd};
+// const creds = require('./config/config.js');
+const creds = { "USER" : process.env.emailUser, "PASS" : process.env.emailPwd};
 
-const publicPath = path.join(__dirname, '..', 'sksiclient/public');
-// app.use(express.static(path.join(__dirname, './sksiclient/build')));
+// const publicPath = path.join(__dirname, '..', 'sksiclient/public');
+app.use(express.static(path.join(__dirname, './sksiclient/build')));
 
 var transport = {
     host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
@@ -59,13 +59,13 @@ router.post('/send', (req, res, next) => {
   })
 })
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'));
-});
-
-// app.get('*', (req,res) => {
-//   res.sendFile(path.join(__dirname, './sksiclient/build/index.html'));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(publicPath, 'index.html'));
 // });
+
+app.get('*', (req,res) => {
+  res.sendFile(path.join(__dirname, './sksiclient/build/index.html'));
+});
 
 const port = process.env.PORT || 3002;
 app.use(cors())
