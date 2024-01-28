@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import {SubTitle, ContainerRow, Paragraph, ContainerColumn, Span} from './../Styled/CommonStyles';
+import {SubTitle, ContainerRow, Paragraph, ContainerColumn} from './../Styled/CommonStyles';
 import { Link } from "react-router-dom";
 import FontIcon from './../FontIcon/FontIcon';
 import {ServiceData} from './../ServiceData/ServiceData';
@@ -40,8 +40,8 @@ class Service extends Component{
                                         {return value.map((data, index) => {
                                             if (index < 3) {
                                                 return ( 
-                                                    <li>
-                                                        <Paragraph align='left' color={COLOR.GRAY} key={key+index} margin='3px 0px' font='16px'>
+                                                    <li key={key+index}>
+                                                        <Paragraph align='left' color={COLOR.GRAY} margin='3px 0px' font='16px'>
                                                             {/* <FontIcon padding='0px 10px 0px 0px' font='5px' align='center' color={COLOR.BLACK} name='circle'/> */}
                                                             {data}
                                                         </Paragraph>

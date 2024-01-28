@@ -27,50 +27,59 @@ class ContactUsForm extends Component{
     }
 
     validateForm() {
-        const errors = {};
+        let errors = {};
     
         if (!this.state.name) {
-          errors.name = 'Name is required';
+            errors.name = 'Name is required';
         }
         if (!this.state.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.email)) {
-          errors.email = 'Invalid email address';
+            errors.email = 'Invalid email address';
         }
         if (!this.state.message) {
-          errors.message = 'Message is required';
+            errors.message = 'Message is required';
         }
         if (!this.state.number) {
             errors.number = 'Number is required';
         }
-    
-        return errors;
+
+        this.setState({errors: errors}, () => {
+            if (this.state.errors && Object.keys(this.state.errors).length === 0) {
+                this.setState({ loading: true }, () => {
+                    let contactUsForm = {};
+                    contactUsForm.name = this.state.name;
+                    contactUsForm.email = this.state.email;
+                    contactUsForm.message = this.state.message;
+                    contactUsForm.number = this.state.number;
+                    fetch('/send',{
+                        method: "POST",
+                        body: JSON.stringify(contactUsForm),
+                        headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                        },
+                    }).then(
+                        (response) => (response.json())
+                    ).then((response)=>{
+                        this.setState({
+                            loading: false
+                        });
+                        if (response.status === 'success'){
+                            alert("We will contact you soon, Thank you"); 
+                            this.resetForm()
+                        }else if(response.status === 'fail'){
+                            alert("Message failed to send")
+                        }
+                    })
+                });
+            }
+        });
       }
 
     handleSubmit(e) {
         e.preventDefault();
-        const errors = this.validateForm();
-        if (Object.keys(errors).length === 0) {
-            this.setState({ loading: true }, () => {
-                fetch('/send',{
-                    method: "POST",
-                    body: JSON.stringify(this.state),
-                    headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                    },
-                }).then(
-                    (response) => (response.json())
-                ).then((response)=>{
-                    this.setState({
-                        loading: false
-                    });
-                    if (response.status === 'success'){
-                        alert("We will contact you soon, Thank you"); 
-                        this.resetForm()
-                    }else if(response.status === 'fail'){
-                        alert("Message failed to send")
-                    }
-                })
-            });
+        this.validateForm();
+        if (this.state.errors && Object.keys(this.state.errors).length === 0) {
+            
         }
     }
 
@@ -91,7 +100,7 @@ class ContactUsForm extends Component{
     }
 
     resetForm(){
-        this.setState({name: '', email: '', message: '', number: '', loading: false, error: {}})
+        this.setState({name: '', email: '', message: '', number: '', loading: false, errors: {}})
     }
 
     render(){

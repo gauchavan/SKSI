@@ -1,3 +1,4 @@
+// how to run node server - npm run dev - both react and node server get turned on
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
@@ -6,10 +7,15 @@ const app = express()
 var router = express.Router();
 
 var cors = require('cors');
+// for local testing - uncomment the below line
 // const creds = require('./config/config.js');
+
 const creds = { "USER" : process.env.emailUser, "PASS" : process.env.emailPwd};
 
+// the below line didn't work locally
 // const publicPath = path.join(__dirname, '..', 'sksiclient/public');
+
+
 app.use(express.static(path.join(__dirname, './sksiclient/build')));
 
 var transport = {
@@ -59,6 +65,7 @@ router.post('/send', (req, res, next) => {
   })
 })
 
+// the below line didn't work locally
 // app.get('*', (req, res) => {
 //   res.sendFile(path.join(publicPath, 'index.html'));
 // });

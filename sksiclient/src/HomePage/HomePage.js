@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React from 'react';
+// import React, {Component} from 'react';
 import './../FontAwesomeIcon/FontAwesomeIcon';
 import SectionOne from './../SectionOne/SectionOne';
 import Footer from './../Footer/Footer';
@@ -9,11 +10,17 @@ import ServiceSection from './../ServiceSection/ServiceSection';
 import Tabs from './../Tabs/Tabs';
 import {ContainerColumn} from './../Styled/CommonStyles';
 import './../CSS/CommonStyles.css';
+// import {
+//     BrowserRouter as Router,
+//     Switch,
+//     Route,
+//     useLocation,
+//     useParams
+//   } from "react-router-dom";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    useLocation,
     useParams
   } from "react-router-dom";
 import AboutUs from '../AboutUs/AboutUs';

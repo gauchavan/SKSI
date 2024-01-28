@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ContactFormSection} from "./../Styled/ContactStyles";
 import {WhiteContainer, FlexColumn, Paragraph} from './../Styled/CommonStyles';
 import ContactUsForm from './../ContactUsForm/ContactUsForm';
-import * as COLOR from './../Constants/COLOR';
+// import * as COLOR from './../Constants/COLOR';
 
 const backgroundColor = {
     backgroundColor: 'rgb(255, 255, 255, 0.2)',
