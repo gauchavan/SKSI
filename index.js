@@ -18,14 +18,26 @@ const creds = { "USER" : process.env.emailUser, "PASS" : process.env.emailPwd};
 
 app.use(express.static(path.join(__dirname, './sksiclient/build')));
 
+// host - for gmail account, added my personal gmail account to test locally
+// var transport = {
+//     host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
+//     port: 465,
+//     secure: true,
+//     auth: {
+//     user: creds.USER,
+//     pass: creds.PASS
+//   }
+// }
+
+// premium702.web-hosting.com is host for namecheap
 var transport = {
-    host: 'smtp.gmail.com', // Don’t forget to replace with the SMTP host of your provider
-    port: 465,
-    secure: true,
-    auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
+  host: 'premium702.web-hosting.com', // Don’t forget to replace with the SMTP host of your provider
+  port: 465,
+  secure: true,
+  auth: {
+  user: creds.USER,
+  pass: creds.PASS
+}
 }
 
 var transporter = nodemailer.createTransport(transport)
@@ -45,8 +57,17 @@ router.post('/send', (req, res, next) => {
   var message = req.body.message
   var content = `name: ${name} \n email: ${email} \n number: ${number} \n  message: ${message} `
 
+// for local testing
+  // var mail = {
+  //   from: req.body.email,
+  //   to: creds.USER,  // Change to email address that you want to receive messages on
+  //   subject: 'New Message from Contact Form',
+  //   text: content
+  // }
+
+  // from should have correct email address in production
   var mail = {
-    from: req.body.email,
+    from: creds.USER,
     to: creds.USER,  // Change to email address that you want to receive messages on
     subject: 'New Message from Contact Form',
     text: content
@@ -74,7 +95,7 @@ app.get('*', (req,res) => {
   res.sendFile(path.join(__dirname, './sksiclient/build/index.html'));
 });
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 8000;
 app.use(cors())
 app.use(express.json())
 app.use('/', router)
